@@ -1,10 +1,6 @@
 let video;
 let classifier;
 let modelLoaded = 'https://teachablemachine.withgoogle.com/models/aVyyZ31gp/';
-let up;
-let down;
-let right;
-let left;
 let snake;
 let rez = 20; // Factor de resolución para escalar todo el juego.
 let food;
@@ -69,7 +65,7 @@ function gotResults(error, results) {
     console.error(error);
     return;
   }
-  label = results[0].label
+  label = results[0].label;
   keyPressed();
   classifyVideo();
 }
