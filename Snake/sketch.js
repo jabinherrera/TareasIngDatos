@@ -41,20 +41,6 @@ function foodLocation() {
   food = createVector(x, y);
 }
 
-function keyPressed() {
-  if (keyCode === LEFT_ARROW) {
-    snake.setDir(-1, 0);
-  } else if (keyCode === RIGHT_ARROW) {
-    snake.setDir(1, 0);
-  } else if (keyCode === DOWN_ARROW) {
-    snake.setDir(0, 1);
-  } else if (keyCode === UP_ARROW) {
-    snake.setDir(0, -1);
-  } else if (key == ' ') {
-    snake.grow();
-  }
-}
-
 function draw() {
   scale(rez);
   background(220);
@@ -83,8 +69,23 @@ function gotResults(error, results) {
     console.error(error);
     return;
   }
-  
+  label = results[0].label
+  keyPressed();
   classifyVideo();
+}
+
+function keyPressed() {
+  if (label === 'izquierda') {
+    snake.setDir(-1, 0);
+  } else if (label === 'derecha') {
+    snake.setDir(1, 0);
+  } else if (label === 'arriba') {
+    snake.setDir(0, 1);
+  } else if (label === "abajo") {
+    snake.setDir(0, -1);
+  } else if (key == ' ') {
+    snake.grow();
+  }
 }
 
 
