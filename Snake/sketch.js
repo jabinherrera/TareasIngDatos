@@ -25,7 +25,8 @@ function setup() {
   foodLocation(); // Coloca la comida en una ubicación inicial aleatoria.
 
   video = createCapture(VIDEO);
-  video.hide();
+  video.size(400, 400);
+  video.position(400, 0);
   classifyVideo();
 }
 
@@ -74,7 +75,7 @@ function draw() {
   rect(food.x, food.y, 1, 1);
 
   // Dibuja el video en el lado derecho
-  image(video, 400, 0);
+  image(video, 400, 400);
 }
 
 function gotResults(error, results) {
